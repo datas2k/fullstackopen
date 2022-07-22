@@ -6,4 +6,5 @@ This course serves as an introduction to modern web application development with
 The course covers testing, configuration and environment management, and the use of MongoDB for storing the application’s data.
 
 Tools used:
+
 UMLet: Open-source multi-platform UML tool [UMLet](https://github.com/umlet/umlet).
