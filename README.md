@@ -5,6 +5,10 @@ This course serves as an introduction to modern web application development with
 
 The course covers testing, configuration and environment management, and the use of MongoDB for storing the application’s data.
 
+part0: Fundamentals of Web apps
+part1: Introduction to React
+
+
 Tools used:
 
-[UMLet](https://github.com/umlet/umlet): Open-source multi-platform UML tool.
+[websequencediagrams](https://www.websequencediagrams.com/): WebSequenceDiagrams.
