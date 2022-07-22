@@ -5,10 +5,8 @@ This course serves as an introduction to modern web application development with
 
 The course covers testing, configuration and environment management, and the use of MongoDB for storing the application’s data.  
 
-
 [part 0](https://github.com/datas2k/fullstackopen/tree/main/part0): Fundamentals of Web apps.  
-part1: Introduction to React.  
-
+[part 1](https://github.com/datas2k/fullstackopen/tree/main/part1): Introduction to React.  
 
 Tools used:  
 [websequencediagrams](https://www.websequencediagrams.com/): WebSequenceDiagrams.
