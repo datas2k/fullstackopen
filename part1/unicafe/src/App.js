@@ -5,27 +5,16 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-
   
-  const handleClick = (data) => {
-    switch (data) {
-      case 'good':
-        setGood(good+1)
-        break;
-      case 'neutral':
-        setNeutral(neutral+1)
-        break;
-      case 'bad':
-        setBad(bad+1)
-        break;
-      default:
-        break;
-    }
-  };
+  const feedBack = {
+    'good': ()=> setGood(good+1),
+    'neutral': ()=> setNeutral(neutral+1),
+    'bad': ()=> setBad(bad+1)
+  }
 
   const Button = ({ feed }) => {
     return (
-      <button className='App-button' onClick={()=> handleClick(feed)}>{feed}</button>
+      <button className='App-button' onClick={()=> feedBack[`${feed}`]()}>{feed}</button>
     )
   }
  
