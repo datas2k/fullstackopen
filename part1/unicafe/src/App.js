@@ -3,27 +3,34 @@ import { useState } from 'react';
 
 const StatisticLine = ({text,value}) => {
   return(
-    <li><p>{text}: {value}</p></li>
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
   );
 };
 
 const Statistics = ({good,neutral,bad,total,average,positive}) => {
   if (total === 0) {
-    return (
-      <ul className='App-statistics-list'>
-        <li><p>No feedback given.</p></li>
-      </ul>
-    )
+    return ( <p>No feedback given.</p> )
   } else {
     return (
-      <ul className='App-statistics-list'>
-        <StatisticLine text="Good" value ={good} />
-        <StatisticLine text="Neutral" value ={neutral} />
-        <StatisticLine text="Bad" value ={bad} />
-        <StatisticLine text="All" value ={total} />
-        <StatisticLine text="Avarage" value ={average} />
-        <StatisticLine text="Positive" value ={positive} />
-      </ul>
+      <table className='App-Table'>
+        <thead>
+          <tr>
+            <th>Feed</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <StatisticLine text="Good" value ={good} />
+          <StatisticLine text="Neutral" value ={neutral} />
+          <StatisticLine text="Bad" value ={bad} />
+          <StatisticLine text="All" value ={total} />
+          <StatisticLine text="Avarage" value ={average} />
+          <StatisticLine text="Positive" value ={positive} />
+        </tbody>
+      </table>
     )
   }  
 }

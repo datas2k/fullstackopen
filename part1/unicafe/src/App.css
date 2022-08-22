@@ -18,30 +18,49 @@ html {
   border-radius: 0.8ch;
 }
 
-.App-button-list, .App-statistics-list {
-  list-style: none;
-  padding-left:0;
-}
+  .App-header {
+    margin: 1ch;
+    margin-bottom: 0.2ch;
+    margin-left: 0;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-.App-button-list {
-  display: flex;
-  flex-flow: row;
-}
+  .App-button-list {
+    list-style: none;
+    padding-left:0;
+    display: flex;
+    flex-flow: row;
+  }
 
-.App-button-list li{
-  margin-right: 1ch;
-}
+    .App-button-list li{
+      margin-right: 1ch;
+    }
 
-.App-header {
-  margin: 1ch;
-  margin-left: 0;
-  font-style: italic;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .App-button {
+    padding: 0.5ch;
+    padding-left: 1ch;
+    padding-right: 1ch;
+    font-weight: bold;
+  }
 
-.App-button {
-  padding: 0.5ch;
-  padding-left: 1ch;
-  padding-right: 1ch;
-  font-weight: bold;
-}
+  .App-Table th,td {
+    padding-left: 1ch;
+    color: white;
+  }
+  
+  .App-Table th {
+    text-align: left;
+    background-color: darkslateblue;
+  }
+  
+  .App-Table td {
+    background-color: darkslategray;
+  }
+  
+  .App-Table tbody tr td:first-child {
+    width: 8ch;
+    min-width: 8ch;
+    max-width: 8ch;
+  }
+
