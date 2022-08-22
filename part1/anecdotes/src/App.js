@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from "react";
 import './App.css';
-import { useState } from 'react'
 
 const anecdotes = [
   'If it hurts, do it more often.',
@@ -11,18 +11,23 @@ const anecdotes = [
   'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
 ];
 
-const Anecdote = ({text,array}) => {
+const Header = ({text}) => {
   return (
-    <ul className='App-text'>
-      <li>{anecdotes[text]}</li>
-      <li>Has <span className='voteCounter'>{array[text]}</span> votes</li>
-    </ul>
+    <h1 className='App-header'>{text}</h1>
   )
+}
+
+const Anecdote = ({text}) => {
+  return ( <li><span>{text}.</span>&nbsp;&nbsp;{anecdotes[text]}</li> )
+}
+
+const Votes = ({text,array}) => {
+  return ( <li className='App-Votes'>Has <span className='voteCounter'>{array[text]}</span> votes</li> )
 }
 
 function App() {
   const [selected, setSelected] = useState(0);
-  
+  const [mostVoted, setMostVoted] = useState(0);
   const initVotes = Array(anecdotes.length).fill(0);
   const [votes, setVotes] = useState(initVotes)
 
@@ -56,14 +61,28 @@ function App() {
     )
   }
 
+  useEffect(() => {
+    const most = votes.indexOf(Math.max(...votes));
+   if (votes[most] <= votes[mostVoted]) {
+      return;
+    }
+    setMostVoted(most);
+  }, [votes, mostVoted]);
+
+
   return (
     <div className='App'>
       <ul className='App-ButtonList'>
         <li><ButtonVote/></li>
         <li><ButtonRND/></li>
       </ul>
-      <Anecdote text={selected} array={votes}/>
-
+      <ul className='App-text'>
+        <Header text='Anecdote of the day'/>
+        <Anecdote text={selected}/>
+        <Votes text={selected} array={votes}/>
+        <Header text='Anecdote with most votes'/>
+        <Anecdote text={mostVoted}/>
+      </ul>
     </div>
   )
 }
