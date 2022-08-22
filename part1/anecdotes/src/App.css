@@ -9,12 +9,50 @@
   justify-content: center;
 }
 
-.App-button {
+.App-ButtonList {
+  list-style: none;
+  display: flex;
   margin: 1ch;
+  padding-left: 0;
+}
+
+.App-button {
   padding-left: 2ch;
   padding-right: 2ch;  
 }
 
 .App-text {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+}
+
+
+.App-text li {
   text-align: center;
+}
+
+.App-text li:last-child {
+  background-color: red;
+  border-radius: 0.5ch;
+  color: white;
+  font-weight: bold;
+  font-size: 2ch;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5ch;
+}
+
+.voteCounter {
+  font-size: 3ch;
+  padding-left: 0.5ch;
+  padding-right: 0.5ch;
+  color: gold;
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: white;
 }

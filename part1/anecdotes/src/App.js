@@ -11,35 +11,59 @@ const anecdotes = [
   'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
 ];
 
-const Anecdote = ({text}) => {
+const Anecdote = ({text,array}) => {
   return (
-    <div className='App-text'>
-      {anecdotes[text]}
-    </div>
+    <ul className='App-text'>
+      <li>{anecdotes[text]}</li>
+      <li>Has <span className='voteCounter'>{array[text]}</span> votes</li>
+    </ul>
   )
 }
 
 function App() {
   const [selected, setSelected] = useState(0);
-    
-  const handleClick = () => {
-    const rnd = Math.floor(Math.random() * anecdotes.length);
-    if (rnd === selected) {
-      handleClick();
+  
+  const initVotes = Array(anecdotes.length).fill(0);
+  const [votes, setVotes] = useState(initVotes)
+
+  const genRND = () => {
+    return Math.floor(Math.random() * anecdotes.length);
+  };
+
+  const handleRNDClick = () => {
+    let rnd = genRND();
+    while (rnd === selected) {
+      rnd = genRND();
     }
     setSelected(rnd);
   }
 
-  const Button = () => {
+  const handleVoteClick = () => {
+    let refreshVotes = [...votes];
+    refreshVotes[selected]++;
+    setVotes(refreshVotes);
+  }
+
+  const ButtonRND = () => {
     return (
-      <button className='App-button' onClick={handleClick}>Random Anecdote</button>
+      <button className='App-button' onClick={handleRNDClick}>Random Anecdote</button>
+    )
+  }
+
+  const ButtonVote = () => {
+    return (
+      <button className='App-button' onClick={handleVoteClick}>Vote</button>
     )
   }
 
   return (
     <div className='App'>
-      <Button/>
-      <Anecdote text={selected}/>
+      <ul className='App-ButtonList'>
+        <li><ButtonVote/></li>
+        <li><ButtonRND/></li>
+      </ul>
+      <Anecdote text={selected} array={votes}/>
+
     </div>
   )
 }
